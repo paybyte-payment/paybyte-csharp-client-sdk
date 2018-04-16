@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISetGetGo.cs" />
+    <Compile Include="Models\PaymentResponse.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Rate.cs" />
     <Compile Include="SetGetGo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
