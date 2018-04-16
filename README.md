@@ -11,7 +11,7 @@ The SDK is also available as a NuGet download from this URL:  [tbd]
 var sgg = new SetGetGo(isTestnet: true);
 var payment = new Payment
 {
-   Amount = 0.034, 
+   Amount = 0.050, 
    MerchAddress = "moJCudny79kaq2ZAjYtLxHYnZAxajjnPzD", 
    Callback = "https://test.com/callback?invoiceId=123"  
 };
