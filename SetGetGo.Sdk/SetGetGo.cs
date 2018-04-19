@@ -11,7 +11,7 @@ namespace SetGetGo.Sdk
     public class SetGetGo : ISetGetGo
     {
         /// <summary>
-        /// True if testnet, False otherwise.
+        /// True to interact with the Testnet, False to interact with Livenet.
         /// </summary>
         public bool IsTestnet { get; set; }
 
