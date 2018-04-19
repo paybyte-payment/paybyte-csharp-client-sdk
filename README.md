@@ -18,11 +18,16 @@ var payment = new Payment
 var paymentResponse = await sgg.CreatePaymentAsync(payment);
 ```
 
-The paymentResponse object will contain the JSON representation of the payment response. 
+The paymentResponse will contain the JSON representation of the payment response. 
 
 ## Retrieve a payment
+
+Simply provide the payment address to retrieve all data related to a transaction.
+
 ```csharp
 var sgg = new SetGetGo(isTestnet: true);
 var paymentAddress = "mifPy1geLcVi1FuaeRkVHpV6uy1oxmTJMK";
 var paymentData = await sgg.GetPaymentAsync(paymentAddress: paymentAddress);
 ```
+
+The SDK will return a JObject representation fo the transaction data.
