@@ -1,4 +1,6 @@
-﻿using SetGetGo.Sdk.Models;
+﻿using Newtonsoft.Json.Linq;
+using SetGetGo.Sdk.Models;
+using System.Threading.Tasks;
 
 namespace SetGetGo.Sdk
 {
@@ -6,11 +8,15 @@ namespace SetGetGo.Sdk
     {
         bool IsTestnet { get; set; }
 
-        PaymentResponse CreatePayment(Payment payment);
+        /// <summary>
+        /// Creates a new payment.
+        /// </summary>
+        /// <param name="payment">The payment data.</param>
+        /// <returns>The <see cref="JObject"/> representation of the payment response.</returns>
+        Task<JObject> CreatePaymentAsync(Payment payment);
 
-        PaymentResponse GetPayment(string paymentAddress);
+        Task<JObject> GetPaymentAsync(string paymentAddress);
 
-        Rate GetRate(string currencyCode);
-
+        Task<JObject> GetRateAsync(string currencyCode);
     }
 }
