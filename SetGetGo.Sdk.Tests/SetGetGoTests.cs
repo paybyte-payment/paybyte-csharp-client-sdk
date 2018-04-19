@@ -58,5 +58,20 @@ namespace SetGetGo.Sdk.Tests
             Assert.IsTrue(!string.IsNullOrWhiteSpace(status["transaction"]["payment-address"].Value<string>()), "the payment address should not be empty.");
             Assert.AreEqual(status["error"].Value<string>(), "ok", "the payment should have been correctly created.");
         }
+
+        /// <summary>
+        /// Test to ensure that get rate completes successfully.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representation.</returns>
+        [TestMethod]
+        public async Task Test_GetRateAsync_Success()
+        {
+            var sgg = new SetGetGo(isTestNet: true);
+
+            var rate = await sgg.GetRateAsync("GBP");
+
+            Assert.AreEqual(rate["rate"]["name"].Value<string>(),"GBP", "the currency code should be GBP.");
+            Assert.AreEqual(rate["error"].Value<string>(), "ok", "the get reate should have been successfull.");
+        }
     }
 }
