@@ -15,7 +15,7 @@ var payment = new Payment
    MerchAddress = "moJCudny79kaq2ZAjYtLxHYnZAxajjnPzD", 
    Callback = "https://test.com/callback?invoiceId=123"  
 };
-var paymentResponse = sgg.CreatePayment(payment);
+var paymentResponse = await sgg.CreatePaymentAsync(payment);
 ```
 
 The paymentResponse object will contain the JSON representation of the payment response. 
@@ -24,11 +24,5 @@ The paymentResponse object will contain the JSON representation of the payment r
 ```csharp
 var sgg = new SetGetGo(isTestnet: true);
 var paymentAddress = "mifPy1geLcVi1FuaeRkVHpV6uy1oxmTJMK";
-var paymentData = sgg.GetPayment(paymentAddress: paymentAddress);
-```
-
-## Get rates
-```csharp
-var sgg = new SetGetGo(isTestnet: true); 
-var rates = sgg.GetRate(currency: "GBP");
+var paymentData = await sgg.GetPaymentAsync(paymentAddress: paymentAddress);
 ```
