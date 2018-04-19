@@ -31,3 +31,12 @@ var paymentData = await sgg.GetPaymentAsync(paymentAddress: paymentAddress);
 ```
 
 The SDK will return a JObject representation fo the transaction data.
+
+## Get rates
+
+Get the exchange rates of the BTC against the provided currency code.
+
+```csharp
+var sgg = new SetGetGo(isTestnet: true); 
+var rates = await sgg.GetRateAsync(currency: "GBP");
+```
