@@ -5,7 +5,7 @@ allowing the developer to focus on the actual purchasing flow rather than on the
 
 The SDK is also available as a NuGet download from this URL:  [tbd]
 
-## Create a payment
+## Create a new payment
 
 ```csharp
 var sgg = new SetGetGo(isTestnet: true);
@@ -20,7 +20,7 @@ var paymentResponse = await sgg.CreatePaymentAsync(payment);
 
 The paymentResponse will contain the JSON representation of the payment response. 
 
-## Retrieve a payment
+## Get a payment data
 
 Simply provide the payment address to retrieve all data related to a transaction.
 
