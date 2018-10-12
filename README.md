@@ -31,7 +31,7 @@ var paymentId = "cf565888-28f5-430e-85af-b34b945ce20f";
 var paymentData = await sgg.GetPaymentAsync(paymentId: paymentId);
 ```
 
-The SDK will return a JObject representation fo the transaction data.
+The SDK will return a JObject representation of the transaction data.
 
 ## Get rates
 
