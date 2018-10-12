@@ -46,12 +46,12 @@ namespace SetGetGo.Sdk
         /// <returns>The <see cref="JObject"/> representation of the payment response.</returns>
         public async Task<JObject> CreatePaymentAsync(Payment payment)
         {
-            if (string.IsNullOrWhiteSpace(payment.MerchAddress) || payment.Amount <= 0)
+            if (string.IsNullOrWhiteSpace(payment.ApiKey) || payment.Amount <= 0 || string.IsNullOrWhiteSpace(payment.Coin))
             {
                 throw new System.ArgumentNullException("Invalid merchant address or amount values");
             }
 
-            var queryString = $"amount={payment.Amount}&merch_addr={payment.MerchAddress}&testnet={this.IsTestnet}";
+            var queryString = $"amount={payment.Amount}&api_key={payment.ApiKey}&testnet={this.IsTestnet}&coin={payment.Coin}";
 
             if (!string.IsNullOrWhiteSpace(payment.Callback))
             {
@@ -61,6 +61,11 @@ namespace SetGetGo.Sdk
             if (!string.IsNullOrWhiteSpace(payment.AffiliateId))
             {
                 queryString += $"&affId={payment.AffiliateId}";
+            }
+
+            if (!string.IsNullOrWhiteSpace(payment.ReturnUrl))
+            {
+                queryString += $"&return_url={payment.ReturnUrl}";
             }
 
             using (var resp = await httpClient.GetAsync($"{baseUrl}/api/create-payment?{queryString}"))
@@ -75,14 +80,14 @@ namespace SetGetGo.Sdk
         /// </summary>
         /// <param name="paymentAddress">The payment address.</param>
         /// <returns>The <see cref="JObject"/> representation of the payment status.</returns>
-        public async Task<JObject> GetPaymentAsync(string paymentAddress)
+        public async Task<JObject> GetPaymentAsync(string paymentId)
         {
-            if (string.IsNullOrWhiteSpace(paymentAddress))
+            if (string.IsNullOrWhiteSpace(paymentId))
             {
-                throw new System.ArgumentNullException("Invalid payment address.");
+                throw new System.ArgumentNullException("Invalid payment id.");
             }
 
-            var queryString = $"payment_addr={paymentAddress}&testnet={this.IsTestnet}"; 
+            var queryString = $"payment_id={paymentId}&testnet={this.IsTestnet}"; 
 
             using (var resp = await httpClient.GetAsync($"{baseUrl}/api/get-payment-status?{queryString}"))
             {

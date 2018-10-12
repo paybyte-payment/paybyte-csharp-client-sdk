@@ -8,11 +8,6 @@
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// The merchant address.
-        /// </summary>
-        public string MerchAddress { get; set; }
-
-        /// <summary>
         /// The callback.
         /// </summary>
         public string Callback { get; set; }
@@ -21,5 +16,20 @@
         /// The affiliate identifier.
         /// </summary>
         public string AffiliateId { get; set; }
+
+        /// <summary>
+        /// The coin identifier.
+        /// </summary>
+        public string Coin { get; set; }
+
+        /// <summary>
+        /// The merchant API key.
+        /// </summary>
+        public string ApiKey { get; set; }
+
+        /// <summary>
+        /// The return URL.
+        /// </summary>
+        public string ReturnUrl { get; set; }
     }
 }
