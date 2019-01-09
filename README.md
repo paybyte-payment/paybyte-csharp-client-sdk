@@ -8,7 +8,7 @@ The SDK is also available as a NuGet download from this URL:  [tbd]
 ## Create a new payment
 
 ```csharp
-var sgg = new SetGetGo(isTestnet: true);
+var payByte = new PayByte(isTestnet: true);
 var payment = new Payment
 {
    Amount = (decimal)0.0332,
@@ -16,7 +16,7 @@ var payment = new Payment
    Coin = "BTC",
    Callback = "https://test.com/callback?invoiceId=123"  
 };
-var paymentResponse = await sgg.CreatePaymentAsync(payment);
+var paymentResponse = await payByte.CreatePaymentAsync(payment);
 ```
 
 The paymentResponse will contain the JSON representation of the payment response. 
@@ -26,9 +26,9 @@ The paymentResponse will contain the JSON representation of the payment response
 Simply provide the payment address to retrieve all data related to a transaction.
 
 ```csharp
-var sgg = new SetGetGo(isTestnet: true);
+var payByte = new PayByte(isTestnet: true);
 var paymentId = "cf565888-28f5-430e-85af-b34b945ce20f";
-var paymentData = await sgg.GetPaymentAsync(paymentId: paymentId);
+var paymentData = await payByte.GetPaymentAsync(paymentId: paymentId);
 ```
 
 The SDK will return a JObject representation of the transaction data.
@@ -38,6 +38,6 @@ The SDK will return a JObject representation of the transaction data.
 Get the exchange rates of the BTC against the provided currency code.
 
 ```csharp
-var sgg = new SetGetGo(isTestnet: true); 
-var rates = await sgg.GetRateAsync(currency: "GBP");
+var payByte = new PayByte(isTestnet: true); 
+var rates = await payByte.GetRateAsync(currency: "GBP");
 ```
