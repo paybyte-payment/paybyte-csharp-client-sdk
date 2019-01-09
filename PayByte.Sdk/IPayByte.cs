@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json.Linq;
-using SetGetGo.Sdk.Models;
+using PayByte.Sdk.Models;
 using System.Threading.Tasks;
 
-namespace SetGetGo.Sdk
+namespace PayByte.Sdk
 {
-    interface ISetGetGo
+    interface IPayByte
     {
         /// <summary>
-        /// True to interact with the Testnet, False to interact with Livenet.
+        /// True to interact with the Testnet, False to interact with Mainnet.
         /// </summary>
         bool IsTestnet { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace SetGetGo.Sdk.Models
+﻿namespace PayByte.Sdk.Models
 {
     public class Payment
     {

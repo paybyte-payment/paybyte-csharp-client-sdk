@@ -1,35 +1,35 @@
 ﻿using Newtonsoft.Json.Linq;
-using SetGetGo.Sdk.Models;
+using PayByte.Sdk.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace SetGetGo.Sdk
+namespace PayByte.Sdk
 {
     /// <summary>
     /// 
     /// </summary>
-    public class SetGetGo : ISetGetGo
+    public class PayByte : IPayByte
     {
         /// <summary>
-        /// True to interact with the Testnet, False to interact with Livenet.
+        /// True to interact with the Testnet, False to interact with Mainnet.
         /// </summary>
         public bool IsTestnet { get; set; }
 
         /// <summary>
-        /// The singleton object of the HTTP client.
+        /// The singleton object representing the HTTP client.
         /// </summary>
         private static HttpClient httpClient;
 
         /// <summary>
         /// The base URL.
         /// </summary>
-        private string baseUrl = "https://setgetgo.com";
+        private string baseUrl = "https://paybyte.io";
 
         /// <summary>
-        /// Initializes a new instance of the SetGetGo object.
+        /// Initializes a new instance of the PayByte object.
         /// </summary>
         /// <param name="isTestNet">True if working on testnet, False otherwise.</param>
-        public SetGetGo(bool isTestNet)
+        public PayByte(bool isTestNet)
         {
             this.IsTestnet = isTestNet;
 
@@ -48,7 +48,7 @@ namespace SetGetGo.Sdk
         {
             if (string.IsNullOrWhiteSpace(payment.ApiKey) || payment.Amount <= 0 || string.IsNullOrWhiteSpace(payment.Coin))
             {
-                throw new System.ArgumentNullException("Invalid merchant address or amount values");
+                throw new System.ArgumentNullException("Invalid input params");
             }
 
             var queryString = $"amount={payment.Amount}&api_key={payment.ApiKey}&testnet={this.IsTestnet}&coin={payment.Coin}";
@@ -76,7 +76,7 @@ namespace SetGetGo.Sdk
         }
 
         /// <summary>
-        /// Gets the payment data by payment address.
+        /// Gets the payment data about a specified payment address.
         /// </summary>
         /// <param name="paymentAddress">The payment address.</param>
         /// <returns>The <see cref="JObject"/> representation of the payment status.</returns>
