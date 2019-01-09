@@ -35,7 +35,7 @@ The SDK will return a JObject representation of the transaction data.
 
 ## Get rates
 
-Get the exchange rates of the BTC against the provided currency code.
+Get the exchange rates of all supported crypto currencies against the provided currency code.
 
 ```csharp
 var payByte = new PayByte(isTestnet: true); 
