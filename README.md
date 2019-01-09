@@ -1,9 +1,7 @@
 # Getting started
-The C# SDK allowes you to accept Bitcoin payments from your C# .NET app using the PayByte REST API.
+The C# SDK allowes you to accept Crypto payments from your C# .NET app using the PayByte REST API.
 The SDK has been designed to act as a wrapper for all the main PayByte functionalities, 
-allowing the developer to focus on the actual purchasing flow rather than on the API's implementation details.
-
-The SDK is also available as a NuGet download from this URL:  [tbd]
+allowing the developers to focus on the actual purchasing flow rather than on the API's implementation details.
 
 ## Create a new payment
 
