@@ -43,3 +43,9 @@ Get the exchange rates of all supported crypto currencies against the provided c
 var payByte = new PayByte(isTestnet: true); 
 var rates = await payByte.GetRateAsync(currency: "GBP");
 ```
+## What do I need
+In order to use PayByte Android SDK, you will need to create a Merchant account on PayByte and get an API KEY.
+Just go to [https://paybyte.io](https://paybyte.io) to register as a merchant and get your API KEY.
+
+## License
+PayByte is released under the MIT License. Please refer to the License file that accompanies this project for more information including complete terms and conditions.
